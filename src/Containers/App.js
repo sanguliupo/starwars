@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SearchBox from '../Components/SearchBox';
 import Species from '../Components/Species';
 import People from '../Components/People';
 import Vehicles from '../Components/Vehicles';
@@ -57,7 +58,7 @@ class App extends Component {
             });
           }}
         >
-          Films
+          Vehicles
         </button>
 
         <button
@@ -72,7 +73,7 @@ class App extends Component {
         >
           Planets
         </button>
-
+        <SearchBox />
         <Species show={this.state.showSpecies} />
         <People show={this.state.showPeople} />
         <Vehicles show={this.state.showVehicles} />

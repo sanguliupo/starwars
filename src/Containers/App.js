@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Species from '../Components/Species';
 import People from '../Components/People';
-import Films from '../Components/Films';
+import Vehicles from '../Components/Vehicles';
 import Planets from '../Components/Planets';
 import './App.css';
 
@@ -11,7 +11,7 @@ class App extends Component {
     this.state = {
       showSpecies: false,
       showPeople: false,
-      showFilms: false,
+      showVehicles: false,
       showPlanets: false
     };
   }
@@ -26,7 +26,7 @@ class App extends Component {
             this.setState({
               showSpecies: true,
               showPeople: false,
-              showFilms: false,
+              showVehicles: false,
               showPlanets: false
             });
           }}
@@ -39,7 +39,7 @@ class App extends Component {
             this.setState({
               showSpecies: false,
               showPeople: true,
-              showFilms: false,
+              showVehicles: false,
               showPlanets: false
             });
           }}
@@ -52,7 +52,7 @@ class App extends Component {
             this.setState({
               showSpecies: false,
               showPeople: false,
-              showFilms: true,
+              showVehicles: true,
               showPlanets: false
             });
           }}
@@ -65,7 +65,7 @@ class App extends Component {
             this.setState({
               showSpecies: false,
               showPeople: false,
-              showFilms: false,
+              showVehicles: false,
               showPlanets: true
             });
           }}
@@ -75,7 +75,7 @@ class App extends Component {
 
         <Species show={this.state.showSpecies} />
         <People show={this.state.showPeople} />
-        <Films show={this.state.showFilms} />
+        <Vehicles show={this.state.showVehicles} />
         <Planets show={this.state.showPlanets} />
       </div>
     );

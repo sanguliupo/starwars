@@ -30,14 +30,4 @@ class People extends React.Component {
 }
 export default People;
 
-//  {this.state.people.map((user, i) => {
-//   return (
-//     <Card
-//       key={i}
-//       color={`rgb(160,${Math.round(Math.random() * 150)},${i + 70})`}
-//       name={`Name: ${this.state.people[i].name}`}
-//       hair_color={`Hair colors: ${this.state.people[i].hair_color}`}
-//       skin_color={`Skin colors: ${this.state.people[i].skin_color}`}
-//     />
-//   );
-// })}
+

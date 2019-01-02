@@ -15,16 +15,29 @@ class Species extends React.Component {
 	}
 
 	render() {
+		let filteredCards;
+
 		if (this.props.show === true) {
-			return (
-				<div>
-					{this.state.species.map(species => {
-						return (
-							<Card colorClass="speciesColor" data={species} />
-						);
-					})}
-				</div>
-			);
+			if (this.state.species.length > 0) {
+				filteredCards = this.state.species.filter(species => {
+					return species.name
+						.toLowerCase()
+						.includes(this.props.searchfield.toLowerCase());
+				});
+
+				return (
+					<div>
+						{filteredCards.map(species => {
+							return (
+								<Card
+									colorClass="speciesColor"
+									data={species}
+								/>
+							);
+						})}
+					</div>
+				);
+			}
 		} else {
 			return null;
 		}

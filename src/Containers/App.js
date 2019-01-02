@@ -4,12 +4,14 @@ import Species from '../Components/Species';
 import People from '../Components/People';
 import Vehicles from '../Components/Vehicles';
 import Planets from '../Components/Planets';
+
 import './App.css';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      searchfield: '',
       showSpecies: false,
       showPeople: false,
       showVehicles: false,
@@ -17,11 +19,14 @@ class App extends Component {
     };
   }
 
+  onSearchChange = event => {
+    this.setState({ searchfield: event.target.value });
+  };
+
   render() {
     return (
       <div className="App">
         <h1>Star Wars React App</h1>
-
         <button
           onClick={() => {
             this.setState({
@@ -73,11 +78,24 @@ class App extends Component {
         >
           Planets
         </button>
-        <SearchBox />
-        <Species show={this.state.showSpecies} />
-        <People show={this.state.showPeople} />
-        <Vehicles show={this.state.showVehicles} />
-        <Planets show={this.state.showPlanets} />
+        <SearchBox searchChange={this.onSearchChange} />
+
+        <Species
+          show={this.state.showSpecies}
+          searchfield={this.state.searchfield}
+        />
+        <People
+          show={this.state.showPeople}
+          searchfield={this.state.searchfield}
+        />
+        <Vehicles
+          show={this.state.showVehicles}
+          searchfield={this.state.searchfield}
+        />
+        <Planets
+          show={this.state.showPlanets}
+          searchfield={this.state.searchfield}
+        />
       </div>
     );
   }

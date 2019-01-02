@@ -15,14 +15,29 @@ class Planets extends React.Component {
 	}
 
 	render() {
+		let filteredCards;
+
 		if (this.props.show === true) {
-			return (
-				<div>
-					{this.state.planets.map(planet => {
-						return <Card colorClass="planetsColor" data={planet} />;
-					})}
-				</div>
-			);
+			if (this.state.planets.length > 0) {
+				filteredCards = this.state.planets.filter(planet => {
+					return planet.name
+						.toLowerCase()
+						.includes(this.props.searchfield.toLowerCase());
+				});
+
+				return (
+					<div>
+						{filteredCards.map(planets => {
+							return (
+								<Card
+									colorClass="planetsColor"
+									data={planets}
+								/>
+							);
+						})}
+					</div>
+				);
+			}
 		} else {
 			return null;
 		}

@@ -15,19 +15,29 @@ class People extends React.Component {
 	}
 
 	render() {
+		let filteredCards;
+
 		if (this.props.show === true) {
-			return (
-				<div>
-					{this.state.people.map(person => {
-						return <Card colorClass="peopleColor" data={person} />;
-					})}
-				</div>
-			);
+			if (this.state.people.length > 0) {
+				filteredCards = this.state.people.filter(person => {
+					return person.name
+						.toLowerCase()
+						.includes(this.props.searchfield.toLowerCase());
+				});
+
+				return (
+					<div>
+						{filteredCards.map(people => {
+							return (
+								<Card colorClass="peopleColor" data={people} />
+							);
+						})}
+					</div>
+				);
+			}
 		} else {
 			return null;
 		}
 	}
 }
 export default People;
-
-

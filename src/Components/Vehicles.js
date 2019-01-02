@@ -15,16 +15,29 @@ class Vehicles extends React.Component {
 	}
 
 	render() {
+		let filteredCards;
+
 		if (this.props.show === true) {
-			return (
-				<div>
-					{this.state.vehicles.map(vehicle => {
-						return (
-							<Card colorClass="vehiclesColor" data={vehicle} />
-						);
-					})}
-				</div>
-			);
+			if (this.state.vehicles.length > 0) {
+				filteredCards = this.state.vehicles.filter(vehicle => {
+					return vehicle.name
+						.toLowerCase()
+						.includes(this.props.searchfield.toLowerCase());
+				});
+
+				return (
+					<div>
+						{filteredCards.map(vehicles => {
+							return (
+								<Card
+									colorClass="vehiclesColor"
+									data={vehicles}
+								/>
+							);
+						})}
+					</div>
+				);
+			}
 		} else {
 			return null;
 		}
